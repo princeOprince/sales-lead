@@ -2,7 +2,7 @@ import createError from 'http-errors';
 import { port } from "./app.mjs";
 import { server } from "./app.mjs";
 import debug from "debug";
-const dbg = debug('notes:server');
+const dbg = debug('sales-lead:server');
 
 export function normalisePort(val) {
     const port = parseInt(val);
