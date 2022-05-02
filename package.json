@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env DEBUG=sales-lead:* nodemon app.mjs"
+    "start": "cross-env SEQUELIZE_CONNECT=models/sequelize-psql.yaml DEBUG=sales-lead:* nodemon app.mjs"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -11,6 +11,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "js-yaml": "^4.1.0",
     "morgan": "~1.9.1",
     "pg": "^8.7.3",
     "pug": "2.0.0-beta11",
