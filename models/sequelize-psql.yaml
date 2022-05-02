@@ -1,0 +1,7 @@
+dbname: sales-lead-db
+username: sales-lead
+password: 
+params:
+  host: localhost
+  port: 5432
+  dialect: postgres
