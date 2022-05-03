@@ -14,7 +14,18 @@ export const submitLead = async (req, res, next) => {
       email: req.body.lead_email
     });
     log('Lead Email:', req.body.lead_email);
-    res.redirect('/');
+    res.redirect('/leads');
+  } catch (err) {
+    error(err);
+    next(err);
+  }
+}
+
+export const showLeads = async (req, res, next) => {
+  try {
+    await connectDB();
+    const leads = await Lead.findAll();
+    res.render('index', { title: 'Express', leads});
   } catch (err) {
     error(err);
     next(err);
