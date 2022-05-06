@@ -31,3 +31,15 @@ export const showLeads = async (req, res, next) => {
     next(err);
   }
 }
+
+export const showLead = async (req, res, next) => {
+  try {
+    await connectDB();
+    const lead = await Lead.findOne(
+      { where: { id: req.params.lead_id } } );
+    res.render('lead', { lead } );
+  } catch (err) {
+    error(err);
+    next(err);
+  }
+}
