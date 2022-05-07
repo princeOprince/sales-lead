@@ -43,3 +43,28 @@ export const showLead = async (req, res, next) => {
     next(err);
   }
 }
+
+export const showEditLead = async (req, res, next) => {
+  try {
+    await connectDB();
+    const lead = await Lead.findOne(
+      { where: { id: req.params.lead_id } } );
+    res.render('lead/edit_lead', { lead } );
+  } catch (err) {
+    error(err);
+    next(err);
+  }
+}
+
+export const editLead = async (req, res, next) => {
+  try {
+    await connectDB();
+    await Lead.update(
+      { email: req.body.lead_email },
+      { where: { id: req.params.lead_id } } );
+    res.redirect(`/lead/${req.params.lead_id}`);
+  } catch (err) {
+    error(err);
+    next(err);
+  }
+}
