@@ -68,3 +68,15 @@ export const editLead = async (req, res, next) => {
     next(err);
   }
 }
+
+export const deleteLead = async (req, res, next) => {
+  try {
+    await connectDB();
+    await Lead.destroy(
+      { where: { id: req.params.lead_id } } );
+    res.redirect(`/leads`);
+  } catch (err) {
+    error(err);
+    next(err);
+  }
+}

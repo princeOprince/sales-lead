@@ -1,6 +1,6 @@
 import express from 'express';
 import { 
-  index, submitLead, showLeads, showLead, showEditLead, editLead 
+  index, submitLead, showLeads, showLead, showEditLead, editLead, deleteLead
 } from '../controllers/index.mjs';
 export const router = express.Router();
 
@@ -10,3 +10,4 @@ router.get('/leads', showLeads);
 router.get('/lead/:lead_id', showLead);
 router.get('/lead/:lead_id/edit', showEditLead);
 router.post('/lead/:lead_id/edit', editLead);
+router.post('/lead/:lead_id/delete', deleteLead);
