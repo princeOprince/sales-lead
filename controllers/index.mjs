@@ -80,3 +80,15 @@ export const deleteLead = async (req, res, next) => {
     next(err);
   }
 }
+
+export const deleteLeadJson = async (req, res, next) => {
+  try {
+    await connectDB();
+    await Lead.destroy(
+      { where: { id: req.params.lead_id } } );
+    res.status(200).json({ msg: "Success"});
+  } catch (err) {
+    error(err);
+    res.status(500).json({ err: err.message });
+  }
+}
